@@ -8,6 +8,9 @@ def getClassifiers():
         gClf = joblib.load('Classifier/G_Classifier.pkl')
         bClf = joblib.load('Classifier/B_Classifier.pkl')
     except:
+        import os
+        if not os.path.exists('Classifier'):
+            os.makedirs('Classifier')
         return None
     return [rClf, gClf, bClf]
 
